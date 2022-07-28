@@ -8,5 +8,9 @@
   },
   "keywords": [],
   "author": "diego caviedes <diego_1996.c.c@hotmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "rxjs": "^7.5.6",
+    "webpack-dev-server": "^4.9.3"
+  }
 }
