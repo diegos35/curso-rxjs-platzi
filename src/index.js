@@ -1,27 +1,19 @@
-import { Observable } from "rxjs";
+/*es un método que permite crear un Observable que recibe eventos determinados de un elemento del DOM.
+Por ejemplo a través de fromEvent podemos interactuar con las coordenadas del cursor a
+ través de toda la pantalla. Esto a través del evento mousemove y el elemento document.  */
 
-const observableAlfa$ = new Observable((subscriber) => {
-  subscriber.next(1);
-  /* a=b */ /* for error uncomment */
-  subscriber.next(2);
-  subscriber.next(20);
-  subscriber.next("curso");
-  subscriber.next({ test: true });
-  subscriber.complete();
-  subscriber.next(6);
-});
+import { fromEvent } from "rxjs";
 
-const observer = {
-  next: (value) => {
-    console.log(value); //imprime cada uno de los next
-  },
-  complete: () => {
-    console.log("obsevable complete");
-  },
-  error: (error) => {
-    console.log("erro recibido");
-    console.error(error);
+//Observable
+const onMouseMove$ = fromEvent(document, "keydown"); //observable
+
+//Observer
+const observadorMouse = {
+  next: (event) => {
+    console.log(event);
   },
 };
 
-observableAlfa$.subscribe(observer);
+onMouseMove$.subscribe(observadorMouse);
+/* same */
+/* onMouseMove$.subscribe((item) => console.log(item));*/
